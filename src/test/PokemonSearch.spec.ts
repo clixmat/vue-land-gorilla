@@ -1,3 +1,4 @@
+// tests/PokemonSearch.spec.ts
 import PokemonSearch from '@/components/PokemonSearch.vue'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'

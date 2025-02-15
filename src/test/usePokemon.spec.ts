@@ -1,3 +1,4 @@
+// tests/usePokemon.spec.ts
 import usePokemon from '@/composables/usePokemon'
 import { describe, expect, it, vi } from 'vitest'
 
