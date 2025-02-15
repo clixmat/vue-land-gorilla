@@ -5,6 +5,7 @@ interface Pokemon {
 }
 
 export default function usePokemon() {
+    // En Utilizamos ref para manejar valores reactivos como pokemonList y searchQuery:
     const pokemonList = ref<Pokemon[]>([])
     const searchQuery = ref('')
     const currentPage = ref(1)
@@ -46,12 +47,13 @@ export default function usePokemon() {
             pokemonList.value = []
         }
     }
-
+    // watch para reaccionar a cambios en la búsqueda permite ejecutar la función searchPokemon automáticamente cuando searchQuery cambia
     watch(searchQuery, async (newQuery) => {
         if (newQuery.trim()) await searchPokemon()
         else await fetchPokemon()
     })
 
+    // Usamos computed para manejar la paginación basada en los datos obtenidos
     const paginatedPokemon = computed(() => pokemonList.value)
 
     const nextPage = () => {

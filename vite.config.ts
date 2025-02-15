@@ -6,6 +6,7 @@ import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
     plugins: [vue(), vueDevTools()],
+    base: '/vue-land-gorilla/',
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url)),
