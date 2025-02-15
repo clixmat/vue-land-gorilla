@@ -1,25 +1,20 @@
 <template>
     <div class="container">
         <div>
+            <img src="https://lh3.googleusercontent.com/3TSaKxXGo2wT0lu0AyNUBnkk6wkCC2AzOhJyy3JXIPm-AmZ1k9DSAroWeBUyePswCZSs5lVp3mPF7HzUpY9VPlyOV5eddITONINr3WSqLNLm=e365-w512"
+                alt="pokemon_logo">
             <PokemonSearch v-model:searchQuery="searchQuery" />
-            <PokemonList
-                :pokemonList="pokemonList"
-                :currentPage="currentPage"
-                :totalPages="totalPages"
-                :nextUrl="nextUrl"
-                :prevUrl="prevUrl"
-                @nextPage="nextPage"
-                @prevPage="prevPage"
-            />
+            <PokemonList :pokemonList="pokemonList" :currentPage="currentPage" :totalPages="totalPages"
+                :nextUrl="nextUrl" :prevUrl="prevUrl" @nextPage="nextPage" @prevPage="prevPage" />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { watch, onMounted } from 'vue'
+import { onMounted, watch } from 'vue'
 
-import PokemonSearch from './components/PokemonSearch.vue'
 import PokemonList from './components/PokemonList.vue'
+import PokemonSearch from './components/PokemonSearch.vue'
 import usePokemon from './composables/usePokemon'
 
 const {
@@ -50,5 +45,11 @@ body {
     display: flex;
     justify-content: center;
     padding: 32px;
+    img {
+        display: flex;
+        margin: auto;
+        padding: 16px;
+        width: 200px;
+    }
 }
 </style>

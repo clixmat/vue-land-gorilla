@@ -8,7 +8,7 @@
         <button @click="emit('prevPage')" :disabled="!prevUrl" data-testid="prev-button">
             Anterior
         </button>
-        <span>Página {{ currentPage }} de {{ totalPages }}</span>
+        <p>Página {{ currentPage }} de {{ totalPages }}</p>
         <button @click="emit('nextPage')" :disabled="!nextUrl" data-testid="next-button">
             Siguiente
         </button>
@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
+import { defineEmits, defineProps } from 'vue';
 
 defineProps({
     currentPage: Number,
@@ -30,6 +30,9 @@ const emit = defineEmits(['nextPage', 'prevPage'])
 </script>
 
 <style scoped>
+span {
+    font-size: 18px;
+}
 button {
     background-color: #5868d2;
     border-radius: 4px;
@@ -37,7 +40,6 @@ button {
     color: #ffffff;
     cursor: pointer;
     height: 44px;
-    margin: 5px;
     outline: none;
     padding: 8px 16px;
     width: 100px;
@@ -49,5 +51,9 @@ ul {
 li {
     margin: 16px 0;
     text-transform: capitalize;
+}
+p {
+    margin: 16px;
+    display: inline-block;
 }
 </style>
