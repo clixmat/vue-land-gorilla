@@ -1,5 +1,7 @@
 # VUE3-LAND_GORILLA
 
+Sitio web en GitHub pages: https://clixmat.github.io/vue-land-gorilla/
+
 Este proyecto es una aplicación en Vue 3 que permite listar, buscar y paginar Pokémon utilizando la API de [PokeAPI](https://pokeapi.co/). La aplicación está construida utilizando la **API de composición** y **composables** para una mejor organización y reutilización del código.
 
 ## 📁 Estructura del Proyecto
