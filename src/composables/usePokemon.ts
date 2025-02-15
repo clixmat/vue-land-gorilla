@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 interface Pokemon {
     name: string
@@ -46,6 +46,11 @@ export default function usePokemon() {
             pokemonList.value = []
         }
     }
+
+    watch(searchQuery, async (newQuery) => {
+        if (newQuery.trim()) await searchPokemon()
+        else await fetchPokemon()
+    })
 
     const paginatedPokemon = computed(() => pokemonList.value)
 

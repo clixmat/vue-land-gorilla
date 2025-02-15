@@ -112,6 +112,33 @@ Maneja la lógica de obtención y búsqueda de Pokémon.
 - `fetchPokemon()` obtiene 20 Pokémon por página.
 - `searchPokemon()` filtra por nombre.
 
+## ⚙️ Reactividad y Uso de Hooks
+
+### **`ref` para manejo del estado reactivo**
+En `usePokemon.ts`, utilizamos `ref` para manejar valores reactivos como `pokemonList` y `searchQuery`:
+```ts
+const pokemonList = ref([])
+const searchQuery = ref('')
+```
+Estos valores cambian dinámicamente cuando se obtienen nuevos datos o cuando el usuario escribe en la barra de búsqueda.
+
+### **`watch` para reaccionar a cambios en la búsqueda**
+`watch` permite ejecutar la función `searchPokemon` automáticamente cuando `searchQuery` cambia:
+```ts
+watch(searchQuery, async (newQuery) => {
+    if (newQuery) await searchPokemon()
+    else await fetchPokemon()
+})
+```
+Esto garantiza que la lista se actualice sin necesidad de que el usuario presione un botón.
+
+### **`computed` para valores derivados**
+En `PokemonList.vue`, usamos `computed` para manejar la paginación basada en los datos obtenidos:
+```ts
+const paginatedPokemon = computed(() => pokemonList.value)
+```
+Estos valores se actualizan automáticamente cuando `nextUrl` o `prevUrl` cambian.
+
 ## 🧪 Tests Unitarios
 Se utilizan `vitest` y `@vue/test-utils` para testear los componentes y el composable.
 
@@ -154,6 +181,11 @@ npm run dev
 
 ## 📌 **Conclusión**
 Este proyecto demuestra cómo **modularizar** y **organizar** una aplicación en Vue 3 utilizando la API de composición y los composables. Con esta estructura, la lógica de negocio se mantiene separada de la vista, facilitando la escalabilidad y el mantenimiento del código. 🚀
+
+
+
+
+
 
 
 
